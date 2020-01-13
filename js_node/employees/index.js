@@ -5,7 +5,7 @@ axios.get(url).then(response => {
     const employees = response.data;
 
     let filt = employees.filter(emp => {
-        if (emp.genero === 'F' && emp.pais === 'China') return true;
+        if (emp.genero === 'F' && emp.pais === 'Brazil') return true;
     });
 
     let filtFinal = filt.sort((a, b) => { return b.salario - a.salario});

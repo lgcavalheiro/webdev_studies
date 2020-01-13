@@ -4,12 +4,15 @@
   "description": "test description",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon",
+    "dev": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.1",
+    "nodemon": "^2.0.2",
     "save": "^2.4.0"
   }
 }
