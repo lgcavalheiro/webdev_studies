@@ -1,3 +1,5 @@
+image:
+  file: .gitpod.dockerfile
 vscode:
   extensions:
     - formulahendry.code-runner@0.9.15:WUpvbF4Wg44WiaFa7exZBw==
