@@ -1,0 +1,63 @@
+#show databases
+show dbs
+
+#use databases - can use db not yet created
+use <dbname>
+
+#create collection
+db.createCollection('<colname>')
+
+#show collections
+show collections
+
+#drop collection
+db.<colname>.drop()
+
+db.states.insert({
+    name: 'British Columbia',
+    acro: 'BC',
+    region: 'CA',
+    population: 5634023,
+    cities: [
+                {
+                    name: 'Burnaby',
+                    area: 3412
+                },
+                { 
+                    name: 'Colwood',
+                    area: 9685
+                }
+            ]
+    })
+
+#find entry
+db.<colname>.find(<obj>)
+#prettyfied
+db.<colname>.find(<obj>).pretty()
+
+#find one entry
+db.<colname>.findOne(<obj>)
+
+#$or example
+db.states.find({$or: [{acro: 'BC'},{region: 'US'}]}).pretty()
+
+#$and example
+db.states.find({$and: [{acro: 'TX'},{region: 'US'}]}).pretty()
+
+#$exists example
+db.states.find({population: {$exists: true}}).pretty()
+
+#pagination skip() and limit(#) examples
+
+db.states.find().skip() #skip first entry
+
+db.states.find().limit(2) #get first 2 entries
+
+#count
+db.states.find().count()
+
+#limit data returned (1 = yes, 0 = no)
+db.states.find({region: 'US'}, {name: 1, region: 1, _id: 0})
+
+db.states.find({region: 'CA'}, {"cities.name": 1, _id: 0})
+
