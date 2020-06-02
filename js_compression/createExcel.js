@@ -1,6 +1,6 @@
 // Require library
 var excel = require('excel4node');
-const { deflate, unzip } = require('zlib');
+const zlib = require('zlib');
 const fs = require('fs');
 
 // Create a new instance of a Workbook class
@@ -61,9 +61,14 @@ let test = Buffer.from(testdecode).toString('base64')
     type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
 }); */
 
-fs.writeFile('./testexel.xlsx', test, {encoding: 'base64'}, function (err) {
-    console.log('file created')
-});
+let deflatedFiles = [zlib.deflateSync(test), zlib.deflateSync(test)]
+fs.writeFileSync('./testcomp.gz', deflatedFiles, function(err) {
+    console.log(err)
+})
 
+console.log(deflatedFiles)
+
+let inflatedFiles = zlib.inflateSync(zlib.deflateSync(test)).toString()
+console.log(inflatedFiles)
 
 //workbook.write('Excel.xlsx');
