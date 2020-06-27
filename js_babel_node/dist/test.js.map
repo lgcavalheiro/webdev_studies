@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/test.js"],"names":["Hello","name"],"mappings":";;;;;;;;;;;;;IAAaA,K;AACV,mBAAa;AAAA;AAEZ;;;;0BAEKC,I,EAAM;AACX,6BAAgBA,IAAhB;AACA","sourcesContent":["export class Hello {\n   constructor(){\n\n   }\n\n   greet(name) {\n    return `hello ${name}!`;\n   }\n}"],"file":"test.js"}
